@@ -7,7 +7,8 @@ const isStudent = true // -> Por 'inferencia' TS sabe que es un boolean
 const hobbies = ['Train', 'Play the Guitar'] // -> Por 'inferencia' TS sabe que es un array de strings
 const address = {
   street: 'Main St',
-  city: 'New York'
+  city: 'New York',
+  country: 'USA'
 } // -> Por 'inferencia' TS sabe que es un objeto
 
 // Tipado explicito
