@@ -1,4 +1,4 @@
-// Tipos de datos
+// TYPE OF DATA
 
 // Tipado por 'inferencia'
 const person = 'Emanuel' // -> Por 'inferencia' TS sabe que es un string
