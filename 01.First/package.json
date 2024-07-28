@@ -1,15 +1,11 @@
 {
-  "dependencies": {
-    "http-server": "^14.1.1"
-  },
+  "dependencies": {},
   "name": "npm-init-example",
   "version": "1.0.0",
   "description": "Example package.json",
   "main": "index.js",
   "devDependencies": {},
-  "scripts": {
-    "start": "http-server -p 8436"
-  },
+  "scripts": {},
   "author": "Emanuel Escudero escudero.mdz@gmail.com",
   "license": "ISC"
 }
