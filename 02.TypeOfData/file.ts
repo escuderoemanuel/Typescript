@@ -1,12 +1,12 @@
 // TYPE OF DATA
 
-const string : string = 'Hello World'
-const number : number = 10
-const boolean : boolean = true
-const array : string[] = ['Hello', 'World']
-const object : {name: string, age: number} = {name: 'Emanuel', age: 38}
-const nullValue : null = null
-const undefinedValue : undefined = undefined
+const string: string = 'Hello World'
+const number: number = 10
+const boolean: boolean = true
+const array: string[] = ['Hello', 'World']
+const object: { name: string, age: number } = { name: 'Emanuel', age: 38 }
+const nullValue: null = null
+const undefinedValue: undefined = undefined
 
 // FUNCTIONS
 function add(a: number, b: number): number {
@@ -19,7 +19,7 @@ interface Person {
   name: string
   age: number
 }
-const personInterface: Person = {name: 'Emanuel', age: 38}
+const personInterface: Person = { name: 'Emanuel', age: 38 }
 
 // CLASSES
 class Car {
@@ -46,12 +46,6 @@ const myColor = Color.Blue
 // UNION TYPES
 let value: string | number = 'Hello'
 value = 10 // -> No dará error porque es un union type
-
-// INTERSECTION TYPES
-type Employee = {
-  name: string
-  age: number
-}
 
 // TYPE ALIAS
 type MyString = string
@@ -97,4 +91,51 @@ const introduction = `My name is ${person} and I am ${age} years old. I live in 
 console.log(introduction)
 
 
+// INTERSECTION TYPES
+type Employee = {
+  name: string
+  age: number
+} // Es un tipo propio personalizado
 
+function createEmployee(employee: Employee): Employee {
+  const { name, age } = employee
+  return { name, age }
+} // -> Lo que returne es de tipo Employee
+
+const employee0001 = createEmployee({ name: 'Emanuel', age: 38 }); // -> Es de tipo Employee
+const employee0002 = createEmployee({ name: 'Karina', age: 34 }); // -> Es de tipo Employee
+
+
+// Tipo para usar dentro de otros tipos
+type HeroId = `${string}-${string}-${string}-${string}-${string}`
+
+// Optional Properties
+type Hero = {
+  readonly id?: HeroId // La prop 'id' es sólo de lectura 'readonly y opcional '?' 
+  name: string
+  age: number
+  isActive?: boolean
+} // Es un tipo propio personalizado
+
+function createHero(hero: Hero): Hero {
+  const { name, age } = hero
+  return {
+    // id: 'hero0001', -> Da error porque el id es de tipo 'HeroId'
+    id: crypto.randomUUID(),
+    name,
+    age,
+    isActive: true
+  }
+} // -> Lo que returne es de tipo Hero
+
+const thor = createHero({ name: 'Thor', age: 1500, isActive: true }); // -> Es de tipo Hero
+const cap = createHero({ name: 'Capitan America', age: 90 }); // -> Es de tipo Hero
+const ironman = createHero({ name: 'Ironman', age: 45, isActive: false }); // -> Es de tipo Hero
+
+thor.id = 1 // -> No da error porque 'id' es opcional, pero da error porque es solamente de lectura, es decir que no se puede asignar/reasignar
+
+
+// Template Union Types
+type HexadecimalColor = `#${string}`
+const color1: HexadecimalColor = 'FF0000' // -> Error porque no respeta el formato
+const color2: HexadecimalColor = '#00FF00'
