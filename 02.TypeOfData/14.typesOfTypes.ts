@@ -24,4 +24,4 @@ const thor = createHero({ name: 'Thor', age: 1500, isActive: true }); // -> Es d
 const cap = createHero({ name: 'Capitan America', age: 90 }); // -> Es de tipo Hero
 const ironman = createHero({ name: 'Ironman', age: 45, isActive: false }); // -> Es de tipo Hero
 
-thor.id = 1 // -> No da error porque 'id' es opcional, pero da error porque es solamente de lectura, es decir que no se puede asignar/reasignar
+thor.id = 1 // Error porque es de lectura, no se puede asignar/reasignar
