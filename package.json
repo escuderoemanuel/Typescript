@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/escuderoemanuel/Typescript/issues"
   },
-  "homepage": "https://github.com/escuderoemanuel/Typescript#readme"
+  "homepage": "https://github.com/escuderoemanuel/Typescript#readme",
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
 }
